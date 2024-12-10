@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Example5 {
 
 	public static void main(String[] args) {
-		// test
 		Scanner scan = new Scanner(System.in);
 		// JS day10연산자 문제 10개를 풀이하기
 		// [지문1] 국어 , 영어 , 수학 점수를 각 입력받아서 각 변수에 저장하고 총점 과 평균을 계산하여 console탭에 출력하시오.
