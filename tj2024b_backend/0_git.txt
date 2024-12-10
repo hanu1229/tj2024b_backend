@@ -23,4 +23,15 @@
 		[staged changes] : 커밋 할 파일
 		[Commit Message] : 커밋 내용
 		[Commit and Push] 클릭
+		
+	* 토큰 발급 방법
+		1. 깃허브 프로필 셋팅 클릭
+		2. [Developer Settings] 클릭
+		3. Personal access tokens (classic) 클릭
+		4. Generate new tokens class 클릭
+		5. Note : 아무말이나 적는다.
+		6. Expiration --> 유효기간
+		7. Generate Tokens 클릭
+		7-1. ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX 형식으로 발급됨
+		
 	
