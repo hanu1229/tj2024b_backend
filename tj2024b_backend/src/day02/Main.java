@@ -3,16 +3,13 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int hour = scan.nextInt();
-        int min = scan.nextInt() - 45;
-        if(min < 0) {
-        	if(hour == 0) {
-        		hour = 23;
-        	} else {        		
-        		hour--;
-        	}
-        	min += 60;
+        short N = scan.nextShort();
+        String type = "";
+        for(int index = 0; index < N/4; index++) {
+        	type += "long ";
         }
-        System.out.println(hour + " " + min);
+        type += "int";
+        System.out.println(type);
+        scan.close();
 	}
 }
