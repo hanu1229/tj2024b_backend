@@ -9,24 +9,24 @@ import java.io.IOException;
 public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
-		int[] arr = new int[N];
-		for(int index = 0; index < arr.length; index++) {
-			arr[index] = index+1;
-		}
-		//System.out.println(Arrays.toString(arr));
-		for(int index = 0; index < M; index++) {
+		StringTokenizer st;
+		int[] arr1 = new int[10];
+		int[] arr2 = new int[10];
+		int count = 0;
+		// 39, 40, 41, 0, 1, 2, 40, 41, 0, 1
+		for(int index = 0; index < 10; index++) {
 			st = new StringTokenizer(br.readLine());
-			int i = Integer.parseInt(st.nextToken());
-			int j = Integer.parseInt(st.nextToken());
-			int temp = arr[i-1];
-			arr[i-1] = arr[j-1];
-			arr[j-1] = temp;
+			arr1[index] = Integer.parseInt(st.nextToken());
+			arr2[index] = arr1[index] % 42;
+			for(int j = 0; j < 10; j++) {
+				if(arr2[index] == arr2[j]) {
+					count++;
+					break;
+				}
+			}
 		}
-		for(int index = 0; index < arr.length; index++) {
-			System.out.print(arr[index] + " ");
-		}
+		Arrays.sort(arr1);
+		System.out.println(Arrays.toString(arr2));
+		System.out.println("count : " + count);
 	}
 }
