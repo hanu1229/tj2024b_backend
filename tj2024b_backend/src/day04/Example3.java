@@ -93,7 +93,7 @@ public class Example3 {
 		//int value = sc.nextInt();
 		int value = 4;
 		for(int i = 0; i < value; i++) {
-			
+			//
 		}
 		// 5.
 	}
