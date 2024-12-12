@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.Scanner;
-public class Main {
+public class ButterExample {
 	public static void main(String[] args) throws IOException {
         //Scanner scan = new Scanner(System.in);
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
