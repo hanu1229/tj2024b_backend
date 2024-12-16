@@ -66,6 +66,7 @@ public class Example2 {
 				break;
 			}
 		}
+		scan.close();
 	}
 
 }
