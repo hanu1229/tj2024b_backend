@@ -31,7 +31,7 @@ public class Example2 {
 			if(count == 1) {
 				System.out.printf(">> 콜라를 선택하셨습니다.\n>> 재고 : %d\n>> 몇개를 구매하시겠습니까? : ", coke);
 				int number = scan.nextInt();
-				if(coke - number > 0) {					
+				if(coke - number >= 0) {					
 					coke -= number;
 					cokeBasket += number;
 					System.out.println("남은 콜라의 개수 : " + coke);
@@ -41,7 +41,7 @@ public class Example2 {
 			} else if(count == 2) {
 				System.out.printf(">> 사이다를 선택하셨습니다.\n>> 재고 : %d\n>> 몇개를 구매하시겠습니까? : ", cider);
 				int number = scan.nextInt();
-				if(cider - number > 0) {					
+				if(cider - number >= 0) {					
 					cider -= number;
 					ciderBasket += number;
 					System.out.println("남은 사이다의 개수 : " + cider);
@@ -51,7 +51,7 @@ public class Example2 {
 			} else if(count == 3) {
 				System.out.printf(">> 환타를 선택하셨습니다.\n>> 재고 : %d\n>> 몇개를 구매하시겠습니까? : ", fanta);
 				int number = scan.nextInt();
-				if(fanta - number > 0) {					
+				if(fanta - number >= 0) {					
 					fanta -= number;
 					fantaBasket += number;
 					System.out.println("남은 환타의 개수 : " + fanta);
