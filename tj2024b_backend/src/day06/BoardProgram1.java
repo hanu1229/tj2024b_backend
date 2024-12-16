@@ -14,7 +14,7 @@ public class BoardProgram1 {
 
 	// 자바의 모든 실행 코드는 main안에서 실행된다.
 	public static void main(String[] args) {
-		
+		Scanner scan = new Scanner(System.in);
 		String title1 = null, content1 = null, writer1 = null;
 		String title2 = null, content2 = null, writer2 = null;
 		String title3 = null, content3 = null, writer3 = null;
@@ -22,7 +22,7 @@ public class BoardProgram1 {
 		// 무한루프
 		while(true) {
 			System.out.println("===== 게시판 프로그램 =====");
-			Scanner scan = new Scanner(System.in);
+			// Scanner scan = new Scanner(System.in);
 			System.out.print("1.등록 2.출력 3.수정 4.삭제 : ");
 			int selectMenu = scan.nextInt();
 			if(selectMenu == 1) {
@@ -87,9 +87,11 @@ public class BoardProgram1 {
 				}
 				
 			} else {
+				scan.close();
 				break;
 			}
 		}
+		scan.close();
 	}
 
 }
