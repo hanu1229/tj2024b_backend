@@ -1,0 +1,17 @@
+[이클립스 git 연동]
+
+	1. Window -> show view -> other
+	2. git -> git repository
+	3. git repositories -> clone a git repository -> clone url
+		url : clone할 저장소 링크
+		user : git id
+		password : git 토큰 번호(토큰 분실시 재발급)
+	4. 가져온 저장소 -> working Tree -> 프로젝트 폴더 오른쪽 클릭 -> import project
+
+[commit/push할때 서명 아이디/이메일]
+	1. window -> show view -> terminal -> terminal
+	2. 모니터 아이콘 클릭 -> choose terminal -> git bash -> ok
+		확인 시 : git config --global user.name
+		변경 시 : git config --global user.name git아이디
+		확인 시 : git config --global user.email
+		변경 시 : git config --global user.email git이메일

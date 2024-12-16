@@ -34,4 +34,3 @@
 		7. Generate Tokens 클릭
 		7-1. ghp_XXXXXXXXXXXXXXXXXXXXXXXXXXX 형식으로 발급됨
 		
-	
