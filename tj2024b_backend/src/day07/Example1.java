@@ -17,27 +17,25 @@ public class Example1 {
 				String phoneNumber = scan.next();
 				System.out.print(">> 인원수 : ");
 				int headCount = scan.nextInt();
+				Waiting waiting = new Waiting();
+				waiting.PhoneNumber = phoneNumber;
+				waiting.headCount = headCount;
 				if(waiting1 == null) {
-					waiting1 = new Waiting();
-					waiting1.headCount = headCount;
-					waiting1.PhoneNumber = phoneNumber;
+					waiting1 = waiting;
 					waiting1.number = ++count;
 				} else if(waiting2 == null) {
-					waiting2 = new Waiting();
-					waiting2.headCount = headCount;
-					waiting2.PhoneNumber = phoneNumber;
+					waiting2 = waiting;
 					waiting2.number = ++count;
 				} else if(waiting3 == null) {
-					waiting3 = new Waiting();
-					waiting3.headCount = headCount;
-					waiting3.PhoneNumber = phoneNumber;
+					waiting3 = waiting;
 					waiting3.number = ++count;
 				} else {
-					System.out.println(">> 더이상 대기가 불가능합니다.");
+					System.out.println(">> 더이상 대기가 불가능합니다.\n");
 				}
 			} else if(choose == 2) {
 				System.out.println(">> 대기번호 확인을 선택했습니다.");
 				if(waiting1 != null) {
+					System.out.println();
 					System.out.printf(">> 순번 : %d / 전화번호 : %s / 인원수 : %d\n", waiting1.number, waiting1.PhoneNumber, waiting1.headCount);
 				}
 				if(waiting2 != null) {
@@ -46,6 +44,7 @@ public class Example1 {
 				if(waiting3 != null) {
 					System.out.printf(">> 순번 : %d / 전화번호 : %s / 인원수 : %d\n", waiting3.number, waiting3.PhoneNumber, waiting3.headCount);
 				}
+				System.out.println();
 			} else {
 				break;
 			}
