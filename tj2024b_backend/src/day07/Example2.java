@@ -5,9 +5,9 @@ public class Example2 {
 
 	public static void main(String[] args) {
 		Product cola = new Product(), cider = new Product(), fanta = new Product();
-		cola.name = "cola"; cola.price = 1000; cola.stock = 10;
-		cider.name = "cider"; cider.price = 1500; cider.stock = 10;
-		fanta.name = "fanta"; fanta.price = 2000; fanta.stock = 10;
+		cola.name = "콜라"; cola.price = 1000; cola.stock = 10;
+		cider.name = "사이다"; cider.price = 1500; cider.stock = 10;
+		fanta.name = "환타"; fanta.price = 2000; fanta.stock = 10;
 		int colaBasket = 0, ciderBasket = 0, fantaBasket = 0;
 		Scanner scan = new Scanner(System.in);
 		while(true) {
