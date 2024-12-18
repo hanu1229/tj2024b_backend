@@ -28,7 +28,7 @@ public class Example1 {
 				for(int index = 0; index < waiting.length; index++) {
 					if(waiting[index] == null) {
 						waiting[index] = newWaiting;
-						System.out.println(">> 대기번호가 발행됐습니다.");
+						System.out.println(">> 대기번호가 발행됐습니다. " + index+1 + "번째입니다.");
 						break;
 					}
 				}
