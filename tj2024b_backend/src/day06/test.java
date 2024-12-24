@@ -19,7 +19,7 @@ public class test {
 		String 인원수3 = null;
 		
 		int 대기번호 = 0;
-		
+		boolean state = false;
 		while(true) {
 			System.out.println("===대기명단===");
 			System.out.println(">> 1. 대기등록 2. 대기번호");
@@ -47,6 +47,9 @@ public class test {
 					인원수3 = people;
 				}else {
 					System.out.println("대기자리가 없습니다.");
+					if(state) {
+						System.out.println(인원수1 + 인원수2 + 인원수3);
+					}
 				}
 
 			}else if(선택 == 2) {

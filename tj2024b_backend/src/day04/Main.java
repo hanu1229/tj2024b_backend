@@ -1,9 +1,9 @@
 package day04;
 import java.util.Arrays;
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+//import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.IOException;
 public class Main {

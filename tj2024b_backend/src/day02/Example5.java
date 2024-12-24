@@ -77,6 +77,7 @@ public class Example5 {
 //		result = (value1 + value2) > 150 ? "합격" : "불합격";
 //		System.out.println("합격 여부 : " + result);
 		
+		scan.close();
 	}
 
 }

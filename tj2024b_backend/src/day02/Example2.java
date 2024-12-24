@@ -17,15 +17,15 @@ public class Example2 {
 		System.out.println("double Value : " + doubleValue);
 		// + 연산중 묵시적 형변환
 		// byte + byte => int
-		byte b1 = 10;
-		byte b2 = 20;
-		short s1 = 30;
-		int i1 = 40;
+//		byte b1 = 10;
+//		byte b2 = 20;
+//		short s1 = 30;
+//		int i1 = 40;
 		float f1 = 3.14f;
 		double d1 = 41.25;
-		int result1 = b1 + b2;
-		int result2 = b1 + s1;
-		float result3 = i1 + f1;
+//		int result1 = b1 + b2;
+//		int result2 = b1 + s1;
+//		float result3 = i1 + f1;
 		double result4 = f1 + d1;
 		System.out.println("result4 : " + result4);
 		

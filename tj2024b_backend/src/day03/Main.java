@@ -1,11 +1,11 @@
 package day03;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int N = sc.nextInt();
+//		int N = sc.nextInt();
 		int v = 0;
 		int count = 0;
 		sc.nextLine();
@@ -18,5 +18,6 @@ public class Main {
 			}
 		}
 		System.out.println(count);
+		sc.close();
 	}
 }

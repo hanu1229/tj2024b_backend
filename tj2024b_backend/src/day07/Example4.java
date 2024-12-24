@@ -1,9 +1,10 @@
 package day07;
-import java.lang.Object;
+//import java.lang.Object;
 import java.util.Arrays;
 public class Example4 {
 
 	public static void main(String[] args) {
+		boolean state = false;
 		// [0] 배열 사용하기 전
 		int studentID1; int studentID2; int studentID3; int studentID4; int studentID5;
 		int studentID6; int studentID7; int studentID8; int studentID9; int studentID10;
@@ -35,6 +36,16 @@ public class Example4 {
 		data[2] = 30.0;
 		for(int i = 0; i < data.length; i++) {
 			System.out.println(data[i]);
+		}
+		if(state) {
+			studentID1 = 0; studentID2 = 0; studentID3 = 0; studentID4 = 0; studentID5 = 0;
+			studentID6 = 0; studentID7 = 0; studentID8 = 0; studentID9 = 0; studentID10 = 0;
+			System.out.println(studentID1 + studentID2 + studentID3 + studentID4 + studentID5);
+			System.out.println(studentID6 + studentID7 + studentID8 + studentID9 + studentID10);
+			System.out.println(studentIDs1);
+			System.out.println(studentIDs2);
+			System.out.println(studentIDs4);
+			System.out.println(studentIDs5);
 		}
 	}
 

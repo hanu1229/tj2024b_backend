@@ -10,7 +10,7 @@ public class Example3 {
 		for(int i = 0; i <= 10; i++) {
 			sum2 += i;
 		}
-		//System.out.println("1부터 10까지 합 : " + sum2);
+		System.out.println("1부터 10까지 합 : " + sum2);
 		
 		// p.114 [나 혼자 코딩]
 		for(int i = 1; i <= 10; i++) {
@@ -39,7 +39,7 @@ public class Example3 {
 			}
 			total += num;
 		}
-		//System.out.println("1부터 100까지 홀수의 합 : " + total);
+		System.out.println("1부터 100까지 홀수의 합 : " + total);
 		
 		// [6] p.120 1분 복습
 		// [7] break문
@@ -96,5 +96,6 @@ public class Example3 {
 			//
 		}
 		// 5.
+		sc.close();
 	}
 }
