@@ -25,9 +25,9 @@ public class BookManagement {
 						System.out.print(">> 1. 도서등록 2. 도서목록 3. 로그아웃 : ");
 						int choose2 = scan.nextInt();
 						if(choose2 == 1) {
-							
+							bs.addBook(scan, books);
 						} else if(choose2 == 2) {
-							
+							bs.printBook(books);
 						} else if(choose2 == 3) {
 							System.out.println(">> 로그아웃합니다.");
 							System.out.println("====== 도서관리 프로그램 ======");
@@ -40,11 +40,11 @@ public class BookManagement {
 						System.out.print(">> 1. 도서대여 2. 도서반납 3. 대여현황 4. 로그아웃 : ");
 						int choose3 = scan.nextInt();
 						if(choose3 == 1) {
-							
+							bs.rentalBook(scan, books, member);
 						} else if(choose3 == 2) {
-							
+							bs.returningBook(scan, member, books);
 						} else if(choose3 == 3) {
-							
+							bs.rentalConfirm(member, books);
 						} else if(choose3 == 4) {
 							System.out.println(">> 로그아웃합니다.");
 							System.out.println("====== 도서관리 프로그램 ======");
@@ -59,5 +59,4 @@ public class BookManagement {
 		}
 		scan.close();
 	}
-
 }
