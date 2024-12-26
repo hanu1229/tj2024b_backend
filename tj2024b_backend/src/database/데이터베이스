@@ -1,0 +1,62 @@
+[데이터베이스]
+	- 데이터(자료) 베이스(모임/집합)
+	- 정의 : 자료들의 모임(집합)
+	- 종류
+		1. 관계형 데이터베이스 		(테이블 형식)
+		2. NOSQL 데이터베이스		(객체 형식(JSON))
+		3. 트리형 데이터베이스
+		4. 네트워크형 데이터베이스
+		
+[관계형 데이터베이스]
+	- 정의
+		- 행(가로)과 열(세로)로 이루어진 데이터의 집합 (표/테이블)
+		- 테이블을 고유/식별 값(PK)을 참조하여 다른 테이블 간에 종속되는 관계를 표현한 구조
+	- 소프트웨어
+		1. Oracle
+		2. MySQL
+		3. MariaDB 등등
+	- 필수 용어
+		1. DB 			: 데이터베이스
+		2. DBA 			: 데이터베이스 관리자
+		3. DBMS			: 데이터베이스 관리 시스템
+		4. DB SERVER	: 데이터베이스가 설치된 PC
+			- SERVER	: 자료를 제공하는 입장
+			- CLIENT	: 자료를 제공 받는 입장
+		5. SQL			: 데이터베이스를 조작하기 위해 사용되는 언어
+		
+[SQL] : 데이터베이스에서 데이터를 추출하고 조작하는데 사용되는 프로그래밍 언어
+
+[환경설정/준비]
+	1. MYSQL SERVER / MYSQL Workbench 설치
+		1. https://dev.mysql.com/downloads/
+		2. [MySQL Installer for Windows] 클릭
+		3. [확인] Select Version : 8.x, Select Operation System : window
+		4. Windows (x86, 32-bit), MSI Installer 8.x (306.5M) download 클릭
+		5. 하단에 [No thanks, just start my download] 클릭
+		
+	2. 다운로드 실행
+		1. Setup Type : [Custom] 선택 후 [Next] 클릭
+		2. Select Products
+			- MySQL Servers --> MySQL Server --> 
+				MySQL Server 8.x --> MySQL Server 8.x 선택 후 오른쪽으로 이동
+			- Applications --> MySQL Workbench -->
+				MySQL Workbench 8.x --> MySQL Workbench 8.x 선택 후 오른쪽으로 이동
+			- [Next] 클릭
+		3. Installation : [Execute] 클릭
+		4. 완료되면 [Next] 클릭 --> [Next] 클릭
+		5. port: 3306인지 체크하고 [Next] 클릭 --> [Next] 클릭
+		6. 학원의 경우 비밀번호는 1234로 설정 후 [Next] [Next] [Next] 클릭
+		7. [Execute] 클릭 --> [Finish] 클릭하면 끝
+
+	3. 환경설치 확인
+		1. MYSQL Workbench 프로그램 실행
+		2. 첫 메인화면에 [Local instance MySQL80]이 있으면 성공
+		
+	[프론트엔드]				[백엔드]
+	HTML/CSS/JS ----통신----> JAVA ----통신----> DB(MySQL)
+	
+	1. [프론트엔드] HTML/CSS/JS
+	2. [백엔드] JAVA/DB
+	3. [웹개발] HTML/CSS/JS(JSP) 		<------> JAVA(서블릿)/DB
+	4. [웹개발] React(HTML/CSS/JS)	<------> JAVA(스프링)/DB
+	5. [앱개발] Flutter(Dart)			<------> JAVA(스프링)/DB
