@@ -1,9 +1,13 @@
-package day14.example2.view;
+package day14.studentManagement.view;
+
+import day14.studentManagement.controller.AcceptController;
+import day14.studentManagement.controller.StudentController;
+import day14.studentManagement.model.dto.AcceptDto;
+import day14.studentManagement.model.dto.StudentDto;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import day14.example2.controller.AcceptController;
-import day14.example2.model.dto.AcceptDto;
 
 public class AcceptView {
 	// singleton start

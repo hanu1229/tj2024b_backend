@@ -1,8 +1,8 @@
-package day14.example2.model.dao;
+package day14.studentManagement.model.dao;
 
+import day14.studentManagement.model.dto.AcceptDto;
 import java.util.ArrayList;
 
-import day14.example2.model.dto.AcceptDto;
 
 public class AcceptDao {
 	// singleton start

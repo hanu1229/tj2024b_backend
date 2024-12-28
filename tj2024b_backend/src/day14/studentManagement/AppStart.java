@@ -1,5 +1,5 @@
-package day14.example2;
-import day14.example2.view.MainView;
+package day14.studentManagement;
+import day14.studentManagement.view.MainView;
 
 public class AppStart {
 	

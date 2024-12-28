@@ -1,5 +1,6 @@
-package day14.example2.view;
-import day14.example2.view.AcceptView;
+package day14.studentManagement.view;
+
+//import day14.studentManagement.view.AcceptView;
 import java.util.Scanner;
 
 public class MainView {
@@ -15,14 +16,17 @@ public class MainView {
 	public void run() {
 		System.out.println("====== 메인 페이지 ======");
 		while(true) {
-			System.out.print(">> 1. 학생 2. 수업 3. 신청 : ");
+			System.out.print(">> 1. 학생 2. 수업 3. 신청 4. 종료 : ");
 			int choose = scan.nextInt();
 			if(choose == 1) {
-				
+				StudentView.getInstance().run();
 			} else if(choose == 2) {
 				
 			} else if(choose == 3) {
 				AcceptView.getInstance().acceptPage();
+			} else if(choose == 4) {
+				System.out.println(">> 프로그램 종료");
+				break;
 			}
 		}
 	}

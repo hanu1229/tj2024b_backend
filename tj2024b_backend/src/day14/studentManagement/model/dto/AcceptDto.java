@@ -1,4 +1,4 @@
-package day14.example2.model.dto;
+package day14.studentManagement.model.dto;
 
 public class AcceptDto {
 	private int classCode;
