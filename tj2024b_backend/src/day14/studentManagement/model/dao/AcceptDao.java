@@ -1,6 +1,7 @@
 package day14.studentManagement.model.dao;
 
 import day14.studentManagement.model.dto.AcceptDto;
+
 import java.util.ArrayList;
 
 
@@ -14,7 +15,7 @@ public class AcceptDao {
 	
 	// 수강등록 처리 함수
 	public boolean createAccept(AcceptDto acceptDto) {
-		if(acceptDto != null) {			
+		if(acceptDto != null) {
 			acceptDB.add(acceptDto);
 			return true;
 		} else {

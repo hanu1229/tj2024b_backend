@@ -21,7 +21,7 @@ public class MainView {
 			if(choose == 1) {
 				StudentView.getInstance().run();
 			} else if(choose == 2) {
-				
+				 ClassView.getInstance().run();
 			} else if(choose == 3) {
 				AcceptView.getInstance().acceptPage();
 			} else if(choose == 4) {
