@@ -33,6 +33,7 @@ create table category_table(
 create table product_table(
 	p_code int auto_increment,
     p_name varchar(10) not null unique,
+    p_price int not null,
     c_code int,
     constraint primary key(p_code),
     constraint foreign key(c_code) references category_table(c_code)
