@@ -15,12 +15,52 @@
             5. DB명, 테이블명, 속성명은 임의로 합니다.
 	* 제출 : 카카오톡방에 SQL 과제 코드가 존재하는 본인 git 상세주소 제출
 */
-
+show databases;
 # 데이터베이스 생성
 create database kioskProgram;
 # 데이터베이스 생성 확인
 show databases;
 # 데이터베이스 선택
 use kioskProgram;
-# 데이터베이스 테이블 생성
+# 데이터베이스 카테고리 테이블 생성
+create table category_table(
+	c_code int auto_increment,
+    c_name varchar(10) not null unique,
+    constraint primary key(c_code)
+);
 
+# 데이터베이스 제품 테이블 생성
+create table product_table(
+	p_code int auto_increment,
+    p_name varchar(10) not null unique,
+    c_code int,
+    constraint primary key(p_code),
+    constraint foreign key(c_code) references category_table(c_code)
+);
+
+# 데이터베이스 주문목록저장 테이블 생성
+create table save_order_table(
+	so_code int auto_increment,
+    so_date date not null,
+    constraint primary key(so_code)
+);
+
+# 데이터베이스 현재주문목록 테이블 생성
+create table today_order_table(
+	to_code int auto_increment,
+    so_code int not null,
+    p_code int not null,
+    constraint primary key(to_code),
+    constraint foreign key(so_code) references save_order_table(so_code),
+    constraint foreign key(p_code) references product_table(p_code)
+);
+
+show tables;
+select * from category_table;
+select * from product_table;
+select * from save_order_table;
+select * from today_order_table;
+drop table if exists category_table;
+drop table if exists product_table;
+drop table if exists save_order_table;
+drop table if exists today_order_table;
