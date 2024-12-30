@@ -23,6 +23,12 @@ class Sparrow extends Birds {
 		this.myName = "참새";
 		System.out.println("[[참새 생성자 탄생]]");
 	}
+	void showMe() {
+		System.out.println("myName : " + this.myName + "입니다.");
+	}
+	void test() {
+		System.out.println("테스트입니다.");
+	}
 }
 class Chicken extends Birds {
 	Chicken() {
@@ -50,6 +56,8 @@ public class Example1 {
 		// 자식 타입의 자료는 부모 타입으로 변환이 자동으로 가능하다. 자식 객체는 부모 타입을 참조한다.
 		// 참새 타입의 자료(객체)가 조류 타입으로 변환이 된다. (자동타입변환)
 		Birds bird2 = sparrow;
+		System.out.println("======");
+		bird2.showMe();
 		// 참새 타입의 자료(객체)가 동물 타입으로 변환이 된다. (자동타입변환)
 		Animal animal2 = sparrow;
 		// 참새 타입의 자료(객체)가 Object 타입으로 변환이 된다. (자동타입변환)
