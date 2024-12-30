@@ -41,7 +41,7 @@ create table product_table(
 # 데이터베이스 주문목록저장 테이블 생성
 create table save_order_table(
 	so_code int auto_increment,
-    so_date date not null,
+    so_date date default now(),
     constraint primary key(so_code)
 );
 
