@@ -33,7 +33,7 @@ create table category_table(
 create table product_table(
 	p_code int auto_increment,
     p_name varchar(10) not null unique,
-    p_price int not null,
+    p_price int unsigned default 0,
     c_code int,
     constraint primary key(p_code),
     constraint foreign key(c_code) references category_table(c_code)
@@ -49,6 +49,7 @@ create table save_order_table(
 # 데이터베이스 현재주문목록 테이블 생성
 create table today_order_table(
 	to_code int auto_increment,
+    to_amount int unsigned not null,
     so_code int not null,
     p_code int not null,
     constraint primary key(to_code),
@@ -65,3 +66,6 @@ drop table if exists category_table;
 drop table if exists product_table;
 drop table if exists save_order_table;
 drop table if exists today_order_table;
+
+# 테이블 간의 관계를 시각화적으로 표현 : ERD 다이어그램
+# 워크벤치에서 테이블 ERD다이어그램 만드는 방법 : 상단메뉴[database] -> [reverse engineer] -> [next]
