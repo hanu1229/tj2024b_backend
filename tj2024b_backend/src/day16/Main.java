@@ -12,7 +12,7 @@ public class Main {
 		str = str.toUpperCase();
 		System.out.println(str);
 		System.out.println((int)str.charAt(0));
-		
+		// 노트북에서 깃허브 테스트 중인 주석
 		for(int index = 0; index < str.length(); index++) {
 			
 		}
