@@ -11,23 +11,24 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int N = Integer.parseInt(st.nextToken());
-		ArrayList<String> strList = new ArrayList<>();
+		int count = 0;
+		
 		for(int index = 0; index < N; index++) {
-			st = new StringTokenizer(br.readLine());
-			String S = st.nextToken();
-			strList.add(S);
-		}
-		System.out.println(strList);
-		// aaa
-		for(int index = 0; index < strList.size(); index++) {
-			String temp = strList.get(index);
-			for(int count = 0; count < temp.length(); count++) {
-				if(count < temp.length()) {
-					if(temp.charAt(index) == temp.charAt(index+1)) {
-						System.out.println("실행");
-					}
+			String S = br.readLine();
+			boolean[] visit = new boolean[26];
+			boolean group = true;
+			for(int j = 0; j < S.length(); j++) {
+				char current = S.charAt(j);
+				if(j > 0 && current != S.charAt(j - 1) && visit[current - 'a']) {
+					group = false;
+					break;
 				}
+				visit[current - 'a'] = true;
+			}			
+			if(group) {
+				count++;
 			}
 		}
+		System.out.println(count);
 	}
 }
