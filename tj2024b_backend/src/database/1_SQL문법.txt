@@ -20,6 +20,9 @@
 			2-2. DROP DATABASE IF EXISTS DB명;	: DB Server에 DB명이 존재하면 DB를 제거
 		
 	- DML : Data Manipulation Language - 데이터베이스 조작어
+		1. INSERT
+			1-1. 모든 속성에 값을 대입
+			1-2. insert into 테이블명 values (값1, 값2, ...);
 	
 	- DCL : Data Control Language - 데이터베이스 제어어
 	

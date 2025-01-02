@@ -20,6 +20,37 @@
 			2-2. DROP DATABASE IF EXISTS DB명;	: DB Server에 DB명이 존재하면 DB를 제거
 		
 	- DML : Data Manipulation Language - 데이터베이스 조작어
+		1. INSERT
+			1-1. 모든 속성에 값을 대입, 속성명 생략 가능
+				- insert into 테이블명 values (값1, 값2, ...);
+			1-2. 특정 속성에 값 대입, 속성명 작성
+				- insert into 테이블명(속성값1, 속성값2, ...) values (값1, 값2, ...);
+			1-3. 여러개의 레코드를 한번에 삽입할때
+				- insert into 테이블명(속성명1, 속성명2, ...) values (값1, 값2, ...), (값1, 값2, ...), ...;
+			※ 주의할점: 속성의 제약조건에 따라서 적절하게 값을 대입해야한다.
+		2. SELECT
+			2-1. 전체 속성의 레코드 조회
+				- select * from 테이블명;
+			2-2. 특정 속성의 레코드 조회
+				- select 속성명 from 테이블명;
+			2-3. 한번에 특정 속성의 레코드 조회
+				- select 속성명1, 속성명2, ... from 테이블명;
+			2-4. where 조건절을 이용한 레코드 조회 [조건절] where 조건;
+				- select * from 테이블명 where 속성명 = 값;
+				
+		3. UPDATE
+			3-1. 전체 레코드의 속성값 수정 (오류 : mySQL workbench에서 전체 수정을 막고 있음)
+				- set SQL_SAFE_UPDATE = 0; --> save mode 꺼짐 1이면 켜짐
+				- update 테이블명 set 속성명 = 새로운값;
+			3-2. 특정 레코드의 속성값만 수정 [조건절] where 조건;
+				- update 테이블명 set 속성명 = 새로운값 where 속성명 = 값;
+			3-3. 여러 속성값을 수정 [조건절] where 조건;
+				- update 테이블명 set 속성명1 = 새로운값, 속성명2 = 새로운값, ... where 속성명 = 값;
+		
+		4. DELETE
+			4. delete from 테이블명 where 속성명 = 값;
+			
+	
 	
 	- DCL : Data Control Language - 데이터베이스 제어어
 	
