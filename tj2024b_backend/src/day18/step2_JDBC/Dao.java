@@ -87,7 +87,36 @@ public class Dao {
 	}
 	
 	// 3. update 메소드
-	
+	public void update() {
+		try {
+			// SQL 작성 (update 테이블명 set 속성명 = 새로운 값 where 속성명 = 값;)
+			String sql = "update user set uname = '강호동' where uno = 2";
+			// SQL 기재
+			PreparedStatement ps = conn.prepareStatement(sql);
+			// 기재된 SQL 실행 및 반환값 얻기
+			int count = ps.executeUpdate();
+			// 반환 결과를 조작
+			if(count == 1) { System.out.println(">> update Success"); return; }
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		System.out.println(">> update Fail");
+	}
 	
 	// 4. delete 메소드
+	public void delete() {
+		try {
+			// SQL 작성 (delete from 테이블명 where 속성명 = 값;)
+			String sql = "delete from user where uno = 3";
+			// SQL 기재
+			PreparedStatement ps = conn.prepareStatement(sql);
+			// 기재된 SQL 실행 및 반환값 얻기
+			int count = ps.executeUpdate();
+			// 반환 결과를 조작
+			if(count == 1) { System.out.println(">> delete Success"); return; }
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		System.out.println(">> delete Fail");
+	}
 }

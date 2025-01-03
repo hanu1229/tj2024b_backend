@@ -10,6 +10,12 @@ public class Example2 {
 		
 		// select 확인
 		Dao.getInstance().select("user");
+		
+		// update 확인 uno = 2의 uname을 강호동으로 변경
+		Dao.getInstance().update();
+		
+		// delete 확인 uno가 3인 레코드 삭제
+		Dao.getInstance().delete();
 	}
 
 }
