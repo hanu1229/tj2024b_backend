@@ -4,36 +4,36 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
-		int[][] arr = new int[N*2][M];
-		int[][] result = new int[N][M];
-		for(int index = 0; index < N*2; index++) {
-			String[] temp = br.readLine().split(" ");
-			for(int j = 0; j < M; j++) {
-				arr[index][j] = Integer.parseInt(temp[j]);
+		int[][] board = new int[9][9];
+		int row = 0;
+		int column = 0;
+		int max = 0;
+		// 입력받은 값을 배열에 저장
+		for(int index = 0; index < 9; index++) {
+			String str = br.readLine();
+			String[] arr = str.split(" ");
+			for(int j = 0; j < 9; j++) {
+				board[index][j] = Integer.parseInt(arr[j]);
 			}
 		}
-		for(int index = 0; index < N; index++) {
-			for(int j = 0; j < M; j++) {
-				if(index + N < N * 2 && index < N) {					
-					result[index][j] = arr[index][j] + arr[index+N][j];
-					if(j == M-1) {
-						if(index == N-1) {
-							System.out.print(result[index][j]);
-						} else {							
-							System.out.print(result[index][j] + "\n");
-						}
-					} else {
-						System.out.print(result[index][j] + " ");
-					}
+		// 최댓값 및 위치 구하기
+		for(int index = 0; index < 9; index++) {
+			int[] tempC = board[index];			
+			for(int j = 0; j < 9; j++) {
+				int tempR = tempC[j];
+				if(tempR >= max) {
+					max = tempR;
+					column = index+1;
+					row = j+1;
 				}
 			}
 		}
+		System.out.println(max);
+		System.out.printf("%d %d", column, row);
 	}
 }

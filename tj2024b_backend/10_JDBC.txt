@@ -1,0 +1,52 @@
+[JDBC]
+	1. Java Data Base Connect : 자바 데이터베이스 연동
+		- 자바와 DB서버를 연동하는 기술
+		
+	2. JDBC 라이브러리
+		- 라이브러리 : 미리 만들어진 클래스/인터페이스들을 모아놓은 파일
+		- JDBC MYDQL 라이브러리 다운로드
+			2-1. https://dev.mysql.com/downloads/
+			2-2. Connector/# --> 연동되는 언어를 선택 자바는 J를 선택
+			2-3. Select Operating System : Platform Independent
+			2-4. Zip Archive 5.1M 다운로드
+			2-5. No thanks, just start my download 클릭 --> Zip 압축해제
+			2-6. 폴더 안 [mysql-connector-j-9.1.0.jar] 파일 확인 (jar : 자바 라이브러리 확장자)
+		
+		- 내 프로젝트 MYSQL JDBC 라이브러리 등록
+			2-1. [mysql-connector-j-9.1.0.jar] 프로젝트 내 이동 --> src --> database 폴더
+			2-2. [mysql-connector-j-9.1.0.jar] 파일 오른쪽 클릭 --> [build path] -->
+				 [add to build path] / 현재 프로젝트에 빌드한다.
+				 
+	3. DB 연동 코드
+		1. 연동할 JDBC 라이브러리 클래스 로드하기. 일반 예외 발생
+			- ClassNotFoundException 예외 발생
+			Class.forName("com.mysql.cj.jdbc.Driver");
+				- mysql : com.mysql.cj.jdbc.Driver
+				- oracle : oravle.jdbc.driver.OracleDriver
+		2. 지정한 DB서버와 계정정보가 일치했을때 DB 연동을 시도하고 성공시 연동된 구현체를 반환한다.
+			- SQLException 예외 발생
+			- DriverManager : DB서버와 연동하는 클래스
+			- .getConnection(url, user, password); : 연결하는 스테틱 메소드
+			DriverManager.getConnection(url, user, password);
+				- url : jdbc:mysql://주소:포트번호/데이터베이스명
+				- user : 사용자명
+				- password : 비밀번호
+			- 연결된 결과를 인터페이스에서 조작할수 있도록 하는 코드
+			Connection conn = DriverManager.getConnection(url, user, password);
+				
+	4. JDBC 핵심 인터페이스
+		* 인터페이스 : 서로 다른 클래스들간의 동일한 목적하의 서로 다른 기능을 수행하는 타입
+		1. Connection
+			- 서로 다른 DB회사에서 제공하는 클래스들을 하나의 타입에서 인스턴스를 조작/사용한다.
+			- 서로 다른 DB회사들은 자바의 Connection 인터페이스의 추상메소드를 구체화했다.
+			- 사용법
+				- Connection conn = DriverManager.getConection("mysql");
+				- Connection conn = DriverManager.getConection("oracle");
+				- Connection conn = DriverManager.getConection("mariaDB");
+				
+			- 추상 메소드
+				- .prepareStatement("SQL문법"); : 연동된 DB의 SQL문법을 기재하는 함수
+		
+		2. PreperedStatement
+		
+		3. ResultSet
