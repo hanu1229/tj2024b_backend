@@ -3,35 +3,30 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.StringTokenizer;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-		int count = Integer.parseInt(st.nextToken());
-		int[][] position = new int[count][2];
-		int[] area = new int[position.length-1];		
-		// position 2차원 배열에 값 넣기
-		for(int index = 0; index < count; index++) {
-			st = new StringTokenizer(br.readLine());
-			position[index][0] = Integer.parseInt(st.nextToken());
-			position[index][1] = Integer.parseInt(st.nextToken());
-		}
-		// 겹치는 부분 찾기 position.length : 3
-		for(int index = 0; index < position.length; index++) {
-			if(index + 1 < position.length) {
-				if(position[index][0] > position[index+1][0]) {
-					
-				} else if(position[index][0] < position[index+1][0]) {
-					int width = position[index][0] + 10;
-					if(width < position[index+1][0]) {
-						
-					}
-				}
-			}
-		}
-		
-	}
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        boolean[][] paper = new boolean[100][100]; // 100x100 도화지
+        int total = 0;
+
+        for (int i = 0; i < n; i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int x = Integer.parseInt(st.nextToken());
+            int y = Integer.parseInt(st.nextToken());
+
+            // 색종이를 10x10 크기로 도화지에 표시
+            for (int row = x; row < x + 10; row++) {
+                for (int col = y; col < y + 10; col++) {
+                    if (!paper[row][col]) { // 아직 칠해지지 않은 부분만 체크
+                        paper[row][col] = true;
+                        total++;
+                    }
+                }
+            }
+        }
+
+        System.out.println(total);
+    }
 }
