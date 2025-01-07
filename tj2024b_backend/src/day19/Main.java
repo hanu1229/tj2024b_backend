@@ -8,13 +8,18 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		int[] ns = new int[36];
-		String[] B = st.nextToken().split("");
-		int N = Integer.parseInt(st.nextToken()) - 1;
-		System.out.println('A' - 55);
-		for(int index = 0; index < B.length; index++) {
-			
+		String N = st.nextToken().toUpperCase();
+		long B = Integer.parseInt(st.nextToken());
+		long result = 1;
+		for(int index = N.length() - 1 ; index >= 0 ; index--) {
+			char temp = N.charAt(0);
+			if('A' <= temp && 'Z' >= temp) {
+				result = (temp - 'A' + 11) * result;
+			} else {
+				result = (temp -'0') * result;
+			}
 		}
+		result = result - 1;
+		System.out.println(result);
 	}
-
 }

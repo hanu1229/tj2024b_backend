@@ -2,7 +2,10 @@ package boardservice10.model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import boardservice10.model.dto.MemberDto;
 
 public class MemberDao {
 	/** DB와 연동한 결과를 조작하는 인터페이스 */
@@ -19,15 +22,35 @@ public class MemberDao {
 		try {			
 			// 1. JDBC 클래스 드라이버 로드, Class.forName();
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			// 2. 
+			// 2. 설정한 경로/계정/비밀번호로 DB서버에 연동을 시도하고 결과물(구현체)를 반환
 			conn = DriverManager.getConnection(dburl, dbuser, dbpwd);
 		} catch(ClassNotFoundException e) {
 			System.out.println(e);
-		} catch(SQLException e) {
+		}  catch(SQLException e) {
 			System.out.println(">> DB 연동 실패");
 			System.out.println(e);
 		}
 	}
 	public static MemberDao getInstance() { return instance; }
 	// singleton end
+	
+	/** 회원가입 처리 메소드 */
+	public boolean signup(MemberDto memberDto) {
+		try {			
+			// [1] SQL문을 작성한다.
+			String sql = "insert into member(mid, mpwd, mname, mphone) values ('" + 
+					memberDto.getMid() + "', '" + memberDto.getMpwd() + "', '" +
+					memberDto.getMname() + "', '" + memberDto.getMphone() + "');";
+			// [2] DB와 연동된 곳에 SQL문을 기재한다.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			// [3] 기재된 SQL문을 실행하고 결과를 받는다.
+			int count = ps.executeUpdate();
+			// [4] 결과에 따른 처리 및 반환을 한다.
+			if(count == 1) { return true; }
+		} catch(SQLException e) {
+			System.out.println(">> DB에 저장 실패");
+			System.out.println(e);
+		}
+		return false;
+	}
 }
