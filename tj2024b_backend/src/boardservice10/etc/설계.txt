@@ -1,0 +1,56 @@
+[boardservice10]
+주제 : 회원제 커뮤니티
+
+	1. 주제선정
+	2. 주요기능들 : 회원기능 , 계층(카테고리/댓글)형 게시물기능
+	3. 세부구현기능들
+		- 회원기능 		: 회원가입 , 로그인 , 아이디/비밀번호 찾기 , 내정보 , 회원탈퇴
+		- 게시물기능 		: 쓰기 , 전체조회 , 개별조회 , 수정 , 삭제 
+		- 댓글기능 		: 쓰기 , 현재게시물댓글조회 , 댓글수정 , 댓글삭제
+	4. 화면 flow chart
+	
+	5. DB 설계와 샘플(스프레드시트) --> DB/Table SQL -> SAMPLE INSERT -> ERD다이어그램
+		- 저장 데이터 파악
+			회원 : 회원번호PK, 아이디. 비밀번호, 이름, 연락처, 가입일
+			카테고리 : 카테고리번호PK, 카테고리명, 작성일
+			게시물 : 게시물번호PK, 제목, 내용, 조회수, 작성일, 작성자(회원번호FK), 카테고리명(카테고리번호FK)
+			댓글 : 댓글번호PK, 내용, 작성일, 작성자(회원번호FK)
+		- 데이터들 간의 관계 파악 : 1대1, 1(PK)대N(FK), M대M
+		- 테이블당 PK(식별자) 1개 이상 권장
+			(회원)회원번호PK 		-- (게시물)회원번호FK[작성자 역할]
+			(회원)회원번호PK 		-- (댓글)회원번호FK[작성자 역할]
+			(카테고리)카테고리번호PK	-- (게시물)카테고리번호FK[카테고리명 역활]
+			(게시물)게시물번호PK		-- (댓글)게시물번호FK[댓글위치 역할]
+			
+	6. REST API 명세서(스프레드시트) : Controller 매개변수/리턴값 정의서
+	7. JAVA 프로젝트 세팅 : 1.패키지구성 2. 클래스구성 3. 싱글톤 구성 4.DB연동코드 5. DTO 생성 6. AppStart
+	[프로젝트 생성]
+		1. 상단 메뉴 => [file] => [new] => [java project] / 없으면 [other...]
+		2. Project Name : 프로젝트와 관련된 영문으로 작성
+		3. JRE			: JAVASE-17 (동일한 JRE로 작성해야한다)
+		4. [finish]
+		5. [MVC 패키지 샘플 구성] : 패키지를 공란으로하면 최초 commit/push에 업로드가 안된다.
+			src
+				controller 패키지
+					MemberController 클래스
+				model 패키지
+					dao 패키지
+						MemberDao 클래스
+					dto 패키지
+						MemberDto 클래스
+				view 패키지
+					Memberview 클래스
+				AppStart 클래스
+				
+				etc 패키지
+					- 부가 파일들 : sql파일, 설계메모파일, jar파일 등등
+		6. 프로젝트에 사용할 외부 라이브러리 : JDBC(Java DataBase Connector)
+			mysql-connector-j-9.1.0.jar : 파일 버전은 통일
+			- 프로젝트 etc에 jar파일을 복사한다.
+			- 각 라이브러리 jar파일들을 오른쪽 클릭해서 [build path] => [add build path]
+		7. 프로젝트 git에 올리는 방법
+			- 0_git이클립스연동.txt파일을 참고
+				
+	8. 기능별 VIEW - CONTROLLER - DAO 코드 작성하기.
+		1. 회원가입view - 회원가입controller - 회원가입dao
+	
