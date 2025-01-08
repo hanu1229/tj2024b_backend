@@ -43,6 +43,7 @@ public class MemberDto {
 	
 	// setter
 	public void setMno(int mno) { this.mno = mno; }
+	public void setMid(String mid) { this.mid = mid; }
 	public void setMpwd(String mpwd) { this.mpwd = mpwd; }
 	public void setMname(String mname) { this.mname = mname; }
 	public void setMphone(String mphone) { this.mphone = mphone; }

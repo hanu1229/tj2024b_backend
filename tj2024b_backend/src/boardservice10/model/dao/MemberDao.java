@@ -3,6 +3,7 @@ package boardservice10.model.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import boardservice10.model.dto.MemberDto;
@@ -53,4 +54,71 @@ public class MemberDao {
 		}
 		return false;
 	}
+	
+	/** 로그인 처리 메소드 */
+	public int login(MemberDto memberDto) {
+		try {			
+			// [1] SQL문을 작성한다.
+			String sql = "select mno from member where mid = ? and mpwd = ?;";
+			// [2] DB와 연동된 곳에 SQL문을 기재한다.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			// [3] 기재된 SQL문을 실행하고 결과를 받는다.
+			ps.setString(1, memberDto.getMid());
+			ps.setString(2, memberDto.getMpwd());
+			ResultSet rs = ps.executeQuery();
+			// [4] 결과에 따른 처리 및 반환을 한다.
+			while(rs.next()) {
+				return rs.getInt("mno");
+			}
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return 0;
+	}
+	
+	
+	/** 아이디찾기 처리 메소드 */
+	public String findId(MemberDto memberDto) {
+		try {	
+			// [1] SQL문 작성한다.
+			String sql = "select mid from member where mname = ? and mphone = ?;";
+			// [2] DB와 연동된 곳에 SQL문 기재한다.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			// [3] 기재된 SQL문을 실행하고 결과를 받는다.
+			ps.setString(1, memberDto.getMname());
+			ps.setString(2, memberDto.getMphone());
+			ResultSet rs = ps.executeQuery();
+			// [4] 결과에 따른 처리 및 반환을 한다.
+			while(rs.next()) {
+				String result = rs.getString("mid");
+				return result;
+			}
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
+	/** 비밀번호찾기 처리 메소드 */
+	public String findPwd(MemberDto memberDto) {
+		try {
+			// [1] SQL문 작성한다.
+			String sql = "select * from member where mid = ? and mphone = ?;";
+			// [2] DB와 연동된 곳에 SQL문 기재한다.
+			PreparedStatement ps = conn.prepareStatement(sql);
+			// [3] 기재된 SQL문을 실행하고 결과를 받는다.
+			ps.setString(1, memberDto.getMid());
+			ps.setString(2, memberDto.getMphone());
+			ResultSet rs = ps.executeQuery();
+			// [4] 결과에 따른 처리 및 반환한다.
+			while(rs.next()) {				
+				String result = rs.getString("mpwd");
+				return result;
+			}
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return null;
+	}
+	
 }

@@ -69,6 +69,15 @@
 			
 		변수		: 속성명	데이터값		데이터(값)
 		메소드	: 함수명	동적/행위		기능
-			
-		1. 회원가입view - 회원가입controller - 회원가입dao
+														CRUD	DML
+		1. 회원가입view - 회원가입controller - 회원가입dao		C		insert
+		2. 아이디찾기 : view -> controller -> dao			R		select
+		3. 비밀번호찾기 : view -> controller -> dao			R		select
+		4. 로그인 : view -> controller -> dao				R		select
+		5. 로그아웃 : view -> controller					로직		X
+		6. 내정보조회 : view -> controller -> dao			R		select
+		7. 회원탈퇴 : view -> controller -> dao			D		delete
+		8. 회원수정 : view -> controller -> dao			U		update
+		
+		*디자인 패턴 : 프로그래밍 설계 괴정에서 자주 발생되는 문제점을 해결하는 설계 방법을 제시
 	

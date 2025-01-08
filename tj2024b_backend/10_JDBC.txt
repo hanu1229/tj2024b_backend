@@ -36,7 +36,7 @@
 				
 	4. JDBC 핵심 인터페이스
 		* 인터페이스 : 서로 다른 클래스들간의 동일한 목적하의 서로 다른 기능을 수행하는 타입
-		1. Connection
+		1. Connection : DB서버와 연동을 시도하고 연동에 성공 결과를 반환
 			- 서로 다른 DB회사에서 제공하는 클래스들을 하나의 타입에서 인스턴스를 조작/사용한다.
 			- 서로 다른 DB회사들은 자바의 Connection 인터페이스의 추상메소드를 구체화했다.
 			- 사용법
@@ -45,8 +45,34 @@
 				- Connection conn = DriverManager.getConection("mariaDB");
 				
 			- 추상 메소드
-				- .prepareStatement("SQL문법"); : 연동된 DB의 SQL문법을 기재하는 함수
+				- conn.prepareStatement("SQL문법"); : 연동된 DB의 SQL문법을 기재하고 PreparedStatement를 반환
 		
-		2. PreperedStatement
+		2. PreparedStatement
+			- 사용법
+				- PreparedStatement ps = conn.prepareStatement("SQL문법");
+			- 추상메소드 
+				- ps.setXXX(?순서번호, 값);		: SQL문에 존재하는 ?(와일드카드)의 순번에 값을 대입
+												  ?(와일드카드) 1번부터 시작 / 타입이 일치
+					- SQL : insert into member(mid, mpwd, mname) values (?, ?, ?);
+						ps.set타입(?번호, 값);
+						ps.setString(1, "qwe1234"); // SQL에 존재하는 첫번째 ?에 "qwe123" 대입
+						ps.setString(2, "a123456"); // SQL에 존재하는 두번째 ?에 "a123456" 대입
+						ps.setString(3, "유재석");	// SQL에 존재하는 세번째 ?에 "유재석" 대입
+						insert into member(mid, mpwd, mname) values ("qwe1234", "a123456", "유재석");
+				- ps.executeQuery();			: select로 기재된 SQL문을 실행하고 처리된 레코드를 조작할 수 있는 ResultSet을 반환
+				- ps.executeUpdate();			: insert, update, delete로 기재된 SQL문을 실행하고 처리된 레코드 수를 반환
 		
 		3. ResultSet
+			- 사용법
+				- ResultSet rs = ps.executeQuery();
+			- 추상메소드	*레코드 : 행/가로 단위
+				- rs.next();	: select 결과로 조회된 레코드들 중에서 다음 레코드 이동, 다음 레코드가 있으면 true 없으면 false
+					- 만약 레코드가 6개라면 next()는 6번 실행이 가능하다.
+					- 주로 while(rs.next()) : 회원목록보기, 게시물 전체조회
+					- 주로 if(rs.next()) : 아이디찾기, 비밀번호찾기, 로그인, 게시물개별조회
+					
+				- rs.getXXX("속성명"); : 현재 ResultSet가 조회 중인 레코드에서 속성값을 반환
+					- XXX : 속성명의 타입 / SQL int --> JAVA .getInt(), SQL varchar --> JAVA .getString()
+					- 속성명 : 값의 대표적인 이름, 예) 나이 / 속성값 : 값, 예) 39
+					- 변수명 = 변수값, 속성명 = 속성값, 멤버변수명 = 멤버변수값, 필드명 = 필드값
+					
