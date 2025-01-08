@@ -55,4 +55,15 @@ public class MemberController {
 		String result = MemberDao.getInstance().findPwd(memberDto);
 		return result;
 	}
+	
+	/** 내정보보기 컨트롤러 메소드 */
+	public MemberDto myInfo() {
+		// Dao에게 로그인(로그인된 회원번호PK)정보를 주고 결과 받아 view에 전달
+		return MemberDao.getInstance().myInfo(loginMno);
+	}
+	
+	/** 회원탈퇴 컨트롤러 메소드 */
+	public void delete() {
+		MemberDao.getInstance().delete(loginMno);
+	}
 }
