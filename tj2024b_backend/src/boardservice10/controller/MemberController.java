@@ -66,4 +66,12 @@ public class MemberController {
 	public void delete() {
 		MemberDao.getInstance().delete(loginMno);
 	}
+	
+	/** 회원수정 컨트롤러 메소드 */
+	public boolean update(MemberDto memberDto) {
+		memberDto.setMno(loginMno);
+		boolean result = MemberDao.getInstance().update(memberDto);
+		return result;
+	}
+	
 }

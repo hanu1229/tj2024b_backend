@@ -13,21 +13,15 @@ public class MemberView {
 	
 	private Scanner scan = new Scanner(System.in);
 	
-	/** 메인메뉴 페이지 */
+	/** 로그인 하기전 메인메뉴 페이지 */
 	public void run() {
 		
 		System.out.println("====== 메인 페이지 ======");
 		while(true) {
-			System.out.print(">> 1. 회원가입 2. 로그인 3. 아이디찾기 4. 비밀번호찾기 5. 종료 : ");
+			System.out.print(">> 1.회원가입 2.로그인 3.아이디찾기 4.비밀번호찾기 5.종료 : ");
 			int choose = scan.nextInt();
 			if(choose == 1) { signup(); }
-			else if(choose == 2) {
-				if(MemberController.getInstance().getLoginMno() == 0) {					
-					login();
-				} else {
-					logout();
-				}
-			}
+			else if(choose == 2) { login(); }
 			else if(choose == 3) { findId(); }
 			else if(choose == 4) { findPwd(); }
 			else if(choose == 5) { System.out.println(">> 종료"); break; }
@@ -62,6 +56,8 @@ public class MemberView {
 		boolean result = MemberController.getInstance().login(memberDto);
 		if(result) {
 			System.out.println(">> 로그인 성공");
+			// BoardView 메인메뉴 페이지 메소드 호출
+			BoardView.getInstance().index();
 		} else {
 			System.out.println(">> 로그인 실패");
 			System.out.println(">> 동일한 회원정보가 없습니다.");
@@ -73,6 +69,7 @@ public class MemberView {
 		int result = MemberController.getInstance().getLoginMno();
 		MemberController.getInstance().logout();
 		System.out.println(">> " + result + " 회원번호님 로그아웃 되었습니다.");
+		System.out.println("====== 메인 페이지 ======");
 	}
 	
 	/** 아이디찾기 페이지 */
@@ -112,31 +109,55 @@ public class MemberView {
 	}
 	
 	/** 내정보 보기 페이지 */
-	public void myInfo() {
+	public int myInfo() {
 		MemberDto result = MemberController.getInstance().myInfo();
 		System.out.println("====== 내정보 ======");
-		System.out.println(">> mid : " + result.getMid());
-		System.out.println(">> mname : " + result.getMname());
-		System.out.println(">> mphone : " + result.getMphone());
-		System.out.println(">> mdate : " + result.getMdate());
+		System.out.println(">> 아이디		: " + result.getMid());
+		System.out.println(">> 이름		: " + result.getMname());
+		System.out.println(">> 전화번호	: " + result.getMphone());
+		System.out.println(">> 생성일		: " + result.getMdate());
 		while(true) {
 			System.out.print(">> 1. 회원수정 2. 회원탈퇴 3. 뒤로가기 : ");
 			int choose = scan.nextInt();
-			if(choose == 1) {}
-			else if(choose == 2) { delete(); }
+			if(choose == 1) { update(); break; }
+			else if(choose == 2) {
+				// delete(); break;
+				int state = delete();
+				if(state == 0) { return state;}
+			}
 			else if(choose == 3) { break; }
 		}
+		return 1;
 	}
 	
 	/** 회원탈퇴 페이지 */
-	public void delete() {
+	public int delete() {
 		System.out.println(">> 정말 회원탈퇴를 하실건가요?");
-		System.out.print(">> 0. 예 1. 아니오 : ");
+		System.out.print(">> 0.예 1.아니오 : ");
 		int choose = scan.nextInt();
 		if(choose == 0) {
 			MemberController.getInstance().delete();
-			logout();
+			// logout();
+			return 0;
+		}
+		return 1;
+	}
+	
+	/** 회원수정 페이지 */
+	public void update() {
+		System.out.println("====== 회원정보 수정 ======");
+		System.out.print(">> 새로운 비밀번호 : "); String mpwd = scan.next();
+		System.out.print(">> 새로운 이름 : "); String mname = scan.next();
+		System.out.print(">> 새로운 전화번호 : "); String mphone = scan.next();
+		MemberDto memberDto = new MemberDto();
+		memberDto.setMpwd(mpwd); memberDto.setMname(mname); memberDto.setMphone(mphone);
+		boolean result = MemberController.getInstance().update(memberDto);
+		if(result) {
+			System.out.println(">> 회원정보 수정 완료");
+		} else {
+			System.out.println(">> 회원정보 수정 실패");
 		}
 	}
 	
 }
+
