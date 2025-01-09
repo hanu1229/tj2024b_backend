@@ -33,7 +33,7 @@ public class BoardView {
 				*/
 			}
 			else if(choose == 3) {}
-			else if(choose == 4) {}
+			else if(choose == 4) { findById(); }
 		}
 	}
 	
@@ -51,6 +51,20 @@ public class BoardView {
 			System.out.print(boardDto.getBdate() + "\t");
 			System.out.print(boardDto.getBtitle() + "\n");
 		}
+	}
+	
+	/** 개별(1개) 게시물 조회 페이지 */
+	public void findById() {
+		System.out.println("====== 개별 게시물 조회 ======");
+		System.out.print(">> 게시물 번호 : "); int bno = scan.nextInt();
+		BoardDto result = BoardController.getInstance().findById(bno);
+		System.out.println("====== 게시물 ======");
+		System.out.println(">> 제목 : " + result.getBtitle());
+		System.out.println(">> 카테고리 번호 : " + result.getCno() + "\t작성자 번호 : " + result.getMno() + 
+				"\t조회수 : " + result.getBview() + "\t작성일 : " + result.getBdate());
+		System.out.println(">> 내용 : " + result.getBcontent());
+		// 추후 댓글 출력하는 코드 부분 아래로 작성
+		System.out.println("====== 게시물 ======");
 	}
 	
 }

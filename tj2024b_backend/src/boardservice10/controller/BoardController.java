@@ -17,4 +17,11 @@ public class BoardController {
 		ArrayList<BoardDto> result = BoardDao.getInstance().findAll();
 		return result;
 	}
+	
+	/** 개별(1개) 게시물 조회 페이지 제어 메소드 */
+	public BoardDto findById(int bno) {
+		BoardDto result = BoardDao.getInstance().findById(bno);
+		return result;
+	}
+	
 }

@@ -33,4 +33,22 @@ public class BoardDao extends Dao {
 		return result;
 	}
 	
+	/** 개별(1개) 게시물 조회 페이지 제어 메소드 */
+	public BoardDto findById(int bno) {
+		BoardDto boardDto = null;
+		try {
+			String sql = "select * from board where bno = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, bno);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				boardDto = new BoardDto(rs.getInt("bno"), rs.getString("btitle"), rs.getString("bcontent"), 
+						rs.getInt("bview"), rs.getString("bdate"), rs.getInt("mno"), rs.getInt("cno"));
+			}
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		return boardDto;
+	}
+	
 }
