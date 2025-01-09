@@ -18,8 +18,8 @@ public class BoardView {
 	/** 로그인 했을때 메인메뉴 페이지 */
 	public void index() {
 		System.out.println("====== 게시판 ======");
-		findAll();
 		while(true) {
+			findAll();
 			System.out.print(">> 1.로그아웃 2.내정보 3.게시물작성 4.게시물상세보기 : ");
 			int choose = scan.nextInt();
 			if(choose == 1) { MemberView.getInstance().logout(); break; }
