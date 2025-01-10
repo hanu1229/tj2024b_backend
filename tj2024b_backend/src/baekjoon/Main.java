@@ -34,6 +34,8 @@ public class Main {
 				count++;
 			}
 		}
+		
+		// 테스트
 		System.out.println(result);
 	}
 }

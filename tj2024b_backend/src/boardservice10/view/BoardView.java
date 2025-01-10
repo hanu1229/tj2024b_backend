@@ -46,8 +46,8 @@ public class BoardView {
 		for(int index = 0; index < result.size(); index++) {
 			BoardDto boardDto = result.get(index);
 			System.out.print(boardDto.getBno() + "\t");
-			System.out.print(boardDto.getCno() + "\t");
-			System.out.print(boardDto.getMno() + "\t");
+			System.out.print(boardDto.getCname() + "\t");
+			System.out.print(boardDto.getMid() + "\t");
 			System.out.print(boardDto.getBdate() + "\t");
 			System.out.print(boardDto.getBtitle() + "\n");
 		}
@@ -60,7 +60,7 @@ public class BoardView {
 		BoardDto result = BoardController.getInstance().findById(bno);
 		System.out.println("====== 게시물 ======");
 		System.out.println(">> 제목 : " + result.getBtitle());
-		System.out.println(">> 카테고리 번호 : " + result.getCno() + "\t작성자 번호 : " + result.getMno() + 
+		System.out.println(">> 카테고리 : " + result.getCname() + "\t작성자 : " + result.getMid() + 
 				"\t조회수 : " + result.getBview() + "\t작성일 : " + result.getBdate());
 		System.out.println(">> 내용 : " + result.getBcontent());
 		// 추후 댓글 출력하는 코드 부분 아래로 작성
