@@ -77,6 +77,8 @@ insert into reply(rcontent, mno, bno) values ('하하하 댓글3', 4, 5);
 insert into reply(rcontent, mno, bno) values ('하하하 댓글4', 5, 5);
 insert into reply(rcontent, mno, bno) values ('하하하 댓글5', 1, 4);
 
+-- delete from member where mid = 'test123';
+
 select * from member;
 select * from category;
 select * from board;
