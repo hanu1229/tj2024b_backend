@@ -38,12 +38,16 @@ public class MemberView {
 		System.out.print(">> 이름 : "); String mname = scan.next();
 		System.out.print(">> 전화번호 : "); String mphone = scan.next();
 		MemberDto memberDto = new MemberDto(mid, mpwd, mname, mphone);
-		boolean result = MemberController.getInstance().signup(memberDto);
-		if(result) {
-			System.out.println(">> 회원가입 성공");
-		} else {
-			System.out.println(">> 회원가입 실패");
-		}
+		int result = MemberController.getInstance().signup(memberDto);
+		if(result == 1) { System.out.println(">> 아이디 길이를 5~30 사이로 해주세요."); }
+		else if(result == 2) { System.out.println(">> 비밀번호 길이를 5~30 사이로 해주세요."); }
+		else if(result == 3) { System.out.println(">> 이름 길이를 2~30 사이로 해주세요."); }
+		else if(result == 4) { System.out.println(">> 연락처를 000-0000-0000 형식으로 작성해주세요."); }
+		else if(result == 5) { System.out.println(">> 회원가입 성공"); }
+		else if(result == 6) { System.out.println(">> 회원가입 실패 관리자에게 문의하세요"); }
+		else if(result == 7) { System.out.println(">> 현재 사용중인 아이디입니다."); }
+		else if(result == 8) { System.out.println(">> 현재 사용중인 전화번호입니다."); }
+
 	}
 	/** 로그인 페이지 */
 	// choose == 2
@@ -157,7 +161,7 @@ public class MemberView {
 		} else {
 			System.out.println(">> 회원정보 수정 실패");
 		}
-	}
+	}	
 	
 }
 

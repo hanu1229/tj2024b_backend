@@ -158,4 +158,31 @@ public class MemberDao extends Dao {
 		return false;
 	}
 	
+	/** 특정한 속성의 중복값 검색
+	 *  <p>
+	 *  field : 중복을 검사할 데이터의 속성명
+	 *  <p>
+	 *  value : 중복을 검사할 데이터
+	 * */
+	public boolean check(String field, String value) {
+		StringBuilder builder = new StringBuilder();
+		builder.append("select * from member where ");
+		builder.append(field);
+		builder.append(" = ");
+		builder.append("'" + value + "'");
+		//System.out.println(builder.toString());
+		try {			
+			String sql = "select * from member where " + field + " = ?;";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, value);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) { return true; }
+		} catch(SQLException e) {
+			System.out.println(e);
+		}
+		
+		return false;
+	}
+	
+	
 }
