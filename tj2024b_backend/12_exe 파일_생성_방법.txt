@@ -1,0 +1,24 @@
+[.jar]
+	- java Archive : 자바의 여러개의 클래스 파일로 구성된 확장자
+	- 배포, 라이브러리 등등
+	- 생성방법
+		1. main이 있는 파일 실행
+		2. 프로젝트 폴더 오른쪽 클릭 --> [Export]
+		3. [JAVA] --> [RUNNABLE JAR FILE] 클릭
+		4. launch configuration : .jar을 만들기 위한 클래스 선택
+			export destination : .jar을 저장할 폴더 선택
+			[Finish]
+			
+[.exe]
+	1. launch4j 프로그램 설치
+		https://sourceforge.net/projects/launch4j/files/launch4j-3/3.50/
+	2. [launch4j-3.50-win32.exe] 다운로드 클릭
+	3. 설치 --> 실행
+	4. [Basic] 탭
+		Output file	: .exe 파일을 저장할 경로
+		Jar			: .exe파을로 만들 .jar 파일의 경로
+		Icon		: 영문 파일.ico만 가능
+	5. [Header] 탭
+		Header type : console로 설정
+	6. [jre] 탭
+		MIN JRE version : 1.8
